@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+  
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  
+  
+  <title> Boolfix </title>
+</head>
+<body>
+  <div id="app" class="container">
+    <header>
+      <img src="img/boolflix.png" alt="logo_boolflix">
+      <input v-model="inputSearch" type="text" placeholder="Cerca il tuo film" v-on:keyup="sendSearch(inputSearch)">
+    </header>
+
+    <div class="movies_container">
+      <div v-for="movie in movieList" class="movie">
+        <div v-if="movie.title == movie.original_title">
+          <h2>{{movie.title}}</h2>
+        </div>
+        <div v-else>
+          <h2> {{movie.original_title}} </h2>
+          <h2>{{movie.tilte}}</h2>
+        </div>
+        
+        <div class="dati_movie">
+        <span class="language">{{movie.original_language}}</span>
+        <br>
+        <i class="fas fa-star" v-for="stars in movie.vote_average"></i>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/df7a7030e8.js" crossorigin="anonymous"></script>
+</body>
+</html>
